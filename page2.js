@@ -75,9 +75,13 @@ function chunkArray(arr, len) {
 
 function flattenArray(arrays) {
 
-  return arrays.reduce(function (a, b) {
-    return a.concat(b);
-  })
+  // return arrays.reduce(function (a, b) {
+  //   return a.concat(b);
+  // })
+
+  // return [].concat.apply([], arrays);
+
+  return [].concat(...arrays);
 }
 
 // CHALLENGE 4: ANAGRAM
