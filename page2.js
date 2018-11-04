@@ -89,16 +89,42 @@ function flattenArray(arrays) {
 // ex. 'elbow' === 'below'
 // ex. 'Dormitory' === 'dirty room##'
 
-function isAnagram(str1, str2) { }
+function isAnagram(str1, str2) {
+  return formatStr(str1) === formatStr(str2)
+
+
+
+
+}
+
+function formatStr(str) {
+  return str
+    .replace(/[^\w]/g, '')
+    .toLowerCase()
+    .split('')
+    .sort()
+    .join('')
+}
 
 // CHALLENGE 5: LETTER CHANGES
 // Change every letter of the string to the one that follows it and capitalize the vowels
 // Z should turn to A
 // ex. 'hello there' === 'Ifmmp UIfsf'
 
-function letterChanges(str) { }
+function letterChanges(str) {
+  let newStr = str.replace(/[a-z]/gi, function (char) {
+    if (char === 'z' || char === 'Z') {
+      return 'a'
+    } else {
+      return String.fromCharCode(char.charCodeAt() + 1);
+    }
+  });
+
+  return newStr;
+
+}
 
 // Call Function
-const output = chunkArray([1, 2, 3, 4, 5, 6, 7], 2);
+const output = letterChanges('Hello There');
 
 console.log(output);
